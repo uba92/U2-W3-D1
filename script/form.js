@@ -21,10 +21,14 @@ class Pet {
     }
   }
 }
+let pet = []
 
 petsForm.addEventListener('submit', (e) => {
   e.preventDefault()
 
-  const pet = new Pet(petName.value, owner.value, species.value, breed.value)
+  newPet = new Pet(petName.value, owner.value, species.value, breed.value)
+  pet.push(newPet)
   console.log(pet)
+
+  e.target.reset()
 })
