@@ -7,6 +7,8 @@ const breed = document.getElementById('breed')
 
 const petsForm = document.getElementById('pets-form')
 
+const arrayOfPets = []
+
 class Pet {
   constructor(_petName, _ownerName, _species, _breed) {
     this.petName = _petName
@@ -16,19 +18,34 @@ class Pet {
   }
 
   sameOwner(otherPet) {
-    if (this.owner === otherPet.owner) {
+    if (this.ownerName === otherPet.ownerName) {
       return true
+    } else {
+      return false
     }
+
+    // return this.owner === otherPet.owner
   }
 }
-let pet = []
 
 petsForm.addEventListener('submit', (e) => {
   e.preventDefault()
 
-  newPet = new Pet(petName.value, owner.value, species.value, breed.value)
-  pet.push(newPet)
-  console.log(pet)
+  const newPet = new Pet(petName.value, owner.value, species.value, breed.value)
 
+  arrayOfPets.push(newPet)
+  console.log(newPet)
+
+  console.log(arrayOfPets)
   e.target.reset()
+})
+
+const compareButton = document.getElementById('compareButton')
+
+compareButton.addEventListener('click', function () {
+  alert(
+    arrayOfPets[arrayOfPets.length - 1].sameOwner(
+      arrayOfPets[arrayOfPets.lenght - 2]
+    )
+  )
 })
