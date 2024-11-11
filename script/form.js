@@ -26,7 +26,5 @@ petsForm.addEventListener('submit', (e) => {
   e.preventDefault()
 
   const pet = new Pet(petName.value, owner.value, species.value, breed.value)
-  return pet
+  console.log(pet)
 })
-
-console.log(pet)
